@@ -10,10 +10,10 @@ class Board extends Component {
         this.DOWN = 40;
         this.LEFT = 37;
         this.RIGHT = 39;
-        let x, y, matrix, balls;
+        //let x, y, matrix, balls;
         
-        this.WIDTH = parseInt(prompt("Enter board width"));
-        this.HEIGHT = parseInt(prompt("Enter board height"));
+        this.WIDTH = parseInt(prompt("Enter board width"), 10);
+        this.HEIGHT = parseInt(prompt("Enter board height"), 10);
 
         if (null === this.WIDTH || isNaN(this.WIDTH) || this.WIDTH < 3) 
             this.WIDTH = TEN;
@@ -50,7 +50,6 @@ class Board extends Component {
             let matrix = this.state.matrix.slice(); 
             let row = this.state.doll;
             matrix[row.x][row.y].mode = 0;
-            let key_id = row.x + '_' + row.y;
             let doll;
             let current_x;
             let current_y;
@@ -128,8 +127,6 @@ class Board extends Component {
             let board_row = [];
             let row = this.state.matrix[i];
             for(let j in row) {
-                       
-                let dstate = this.state.matrix[i][j];
                 let k = i + '_' + j;
                 board_row.push( <Box key={k} id={this.state.matrix[i][j].key} x={this.state.matrix[i][j].x} y={this.state.matrix[i][j].y} mode={this.state.matrix[i][j].mode} /> );
                 
@@ -141,20 +138,8 @@ class Board extends Component {
         return board;
     }
 
-    getArrangement(row, col) {
-        let matrix = [];
-        for(let i = 0; i < row; i++) {
-            matrix[i] = [];
-            for(let j = 0; j < col; j++) {
-                matrix[i][j] = 0;
-            }
-        }
-        return matrix;
-    }
-
     getDummyList(row, col) {
         let list = [];
-        let pos = Math.floor(Math.random() * row * col);
         for(let i = 0; i < row * col; i++) {
             list[i] = 0;
         }
