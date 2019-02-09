@@ -2,7 +2,7 @@
 # Installation
 ## Clone this repo by running: 
 ```
-git clone https://github.com/rasheedsaidi/hbay-maze.git
+git clone https://github.com/saidiadegoke/hbay-maze.git
 ```
 
 # Running the Maze Game
